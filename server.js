@@ -13,9 +13,7 @@ app.use(cors({
     methods: ["GET", "POST", "PATCH", "DELETE"]
 }));
 
-app.get("/", (req, res) => {
-    res.send("Backend is running successfully!!")
-})
+
 
 const blogs = [
     {
@@ -32,7 +30,12 @@ const blogs = [
     }
 ];
 
-
+app.get("/", (req, res) => {
+    res.status(200).json({
+        success: true,
+        data: blogs
+    })
+})
 
 app.get("/blogs", (req, res) => {
     res.status(200).json({
@@ -155,7 +158,7 @@ app.patch("/blogs/:id", (req, res) => {
 });
 
 app.get("/", (req, res) => {
-    res.send("Backend is running successfully!!");
+    res.redirect("/blogs");
 });
 
 
