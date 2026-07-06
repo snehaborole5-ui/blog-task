@@ -13,6 +13,10 @@ app.use(cors({
     methods: ["GET", "POST", "PATCH", "DELETE"]
 }));
 
+app.get("/", (req, res) => {
+    res.send("Backend is running successfully!!")
+})
+
 const blogs = [
     {
         id: "1",
@@ -150,6 +154,9 @@ app.patch("/blogs/:id", (req, res) => {
 
 });
 
+app.get("/", (req, res) => {
+    res.send("Backend is running successfully!!");
+});
 
 
 app.listen(PORT, () => {
@@ -157,4 +164,4 @@ app.listen(PORT, () => {
 });
 
 
-module.exports = app;
+
